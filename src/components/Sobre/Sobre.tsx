@@ -36,17 +36,17 @@ export function Sobre({
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Imagem - 50% (totalmente limpa) */}
-          {/*<div className="lg:w-1/2 w-full">
+          {<div className="lg:w-1/2 w-full">
             <img
               src={imagem}
               alt={titulo}
               className="h-auto object-cover rounded-lg shadow-md"
               loading="lazy"
             />
-          </div>*/}
+          </div>}
 
           {/* Conteúdo - 50% com card sutil */}
-          {/*<div className="lg:w-1/2 w-full">
+          <div className="lg:w-1/2 w-full">
             <div className="border border-teal-200 rounded-lg p-6 space-y-6 bg-white shadow-sm">
               <div className="space-y-2">
                 <span className="text-teal-600 font-medium uppercase tracking-wider text-sm">
@@ -82,7 +82,7 @@ export function Sobre({
                 </Button>
               </div>
             </div>
-          </div>*/}
+          </div>
         </div>
       </div>
     </section>
