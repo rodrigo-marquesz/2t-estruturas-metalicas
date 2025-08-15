@@ -1,5 +1,5 @@
 export const sobreContent = {
-  imagem: "/2t_logo_esquerda.png",
+  imagem: "/Avatar 2t branco.png",
   titulo: "Excelência em Estruturas Metálicas",
   texto: [
     "Fundada em 2010, a 2T Estruturas se tornou referência no mercado de construção metálica, combinando tecnologia de ponta com know-how tradicional.",

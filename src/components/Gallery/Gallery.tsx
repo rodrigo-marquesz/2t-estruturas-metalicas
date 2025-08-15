@@ -1,16 +1,13 @@
-// components/Portfolio/Gallery.tsx
-import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Project {
   title: string;
-  description: string;
   image: string;
-  category: string;
-  fullSizeImage?: string; // Opcional: para uma imagem em maior resolução
+  fullSizeImage?: string;
 }
 
 interface GalleryProps {
@@ -19,66 +16,66 @@ interface GalleryProps {
 
 export function Gallery({ projects }: GalleryProps) {
   return (
-    <section id="galeria" className="py-4 bg-gray-50">
+    <section id="galeria" className="py-12 bg-[#0f103d]">
       <div className="container mx-auto px-4">
-        {/* Cabeçalho */}
-        <div className="text-center mb-12">
-          <Badge className="mb-4 bg-teal-100 text-teal-800 hover:bg-teal-100">
+        {/* Cabeçalho com texto claro */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-white font-montserrat">
             Nossos Projetos
-          </Badge>
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Qualidade em Estruturas Metálicas
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Confira nossos trabalhos recentes e a excelência que aplicamos em cada projeto.
-          </p>
         </div>
 
-        {/* Carrossel */}
+        {/* Carrossel com estilo dark */}
         <div className="max-w-7xl mx-auto">
           <Carousel
             opts={{
               align: "start",
               loop: true,
+              dragFree: true,
+              duration: 50,
             }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: true,
+              }),
+            ]}
             className="w-full"
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-1">
               {projects.map((project, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 border-gray-200 flex flex-col">
-                    {/* Container da imagem com proporção 16:9 */}
+                <CarouselItem 
+                  key={index} 
+                  className="pl-1 basis-full sm:basis-1/2 lg:basis-1/3"
+                >
+                  <Card className="h-full overflow-hidden border border-gray-700 flex flex-col group bg-gray-800 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300">
                     <div className="relative aspect-video overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-90 group-hover:brightness-100"
                         loading="lazy"
                       />
-                      <Badge className="absolute top-3 left-3 bg-white/90 text-gray-800 backdrop-blur-sm border-gray-200">
-                        {project.category}
-                      </Badge>
                     </div>
                     
-                    <CardContent className="p-6 flex-1 flex flex-col">
-                      <div className="flex-1">
-                        <h3 className="font-bold text-lg mb-2 text-gray-900">{project.title}</h3>
-                        <p className="text-gray-600 text-sm mb-4">{project.description}</p>
-                      </div>
+                    <CardContent className="p-4 flex flex-col items-center">
+                      <h3 className="font-medium text-white text-center font-montserrat">
+                        {project.title}
+                      </h3>
                       
-                      {/* Botão que abre em nova guia */}
                       <a 
                         href={project.fullSizeImage || project.image} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="block w-full"
+                        className="block w-full mt-3"
                       >
                         <Button 
                           variant="outline" 
-                          className="w-full border-teal-600 text-teal-600 hover:bg-teal-50"
+                          size="sm"
+                          className="w-full bg-teal-500 border-none ho"
                         >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Ver detalhes
+                          <ExternalLink className="h-3 w-3 mr-2" />
+                          Ver em tela cheia
                         </Button>
                       </a>
                     </CardContent>
@@ -86,19 +83,14 @@ export function Gallery({ projects }: GalleryProps) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex justify-center mt-8 gap-4">
-              <CarouselPrevious className="static translate-y-0 bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900" />
-              <CarouselNext className="static translate-y-0 bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900" />
-            </div>
           </Carousel>
         </div>
 
-        {/* Rodapé */}
-        <div className="text-center mt-10">
-          <p className="text-gray-600 mb-6">Gostou do que viu? Vamos conversar sobre seu projeto.</p>
+        {/* Rodapé com botão destacado */}
+        <div className="text-center mt-8">
           <Button 
             onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-teal-600 hover:bg-teal-700"
+            className="bg-teal-500 hover:bg-teal-600 text-gray-900 font-montserrat font-semibold shadow-lg hover:shadow-teal-500/20 transition-all"
           >
             Solicitar Orçamento
           </Button>

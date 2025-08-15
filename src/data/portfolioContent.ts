@@ -2,40 +2,46 @@
 export const portfolioContent = {
   projects: [
     {
-      title: "Galpão Industrial",
-      description: "Estrutura metálica para armazenagem com 2.500m²",
-      image: "/2t_estruturas_1.jpg",
+      title: "Pavilhão Metálico",
+      description: "Pavilhão metálico feito sob medida para atender às necessidades do cliente.",
+      image: "/pavilhao_metalico.jpg",
       category: "Industrial"
     },
     {
-      title: "Cobertura Metálica",
-      description: "Projeto completo para estacionamento empresarial",
-      image: "/2t_estruturas_2.jpg",
+      title: "Escada Metálica",
+      description: "Escada feita sob medida para atender às necessidades do cliente.",
+      image: "/escada_metalica.jpg",
       category: "Comercial"
     },
     {
       title: "Estrutura para Loja",
       description: "Solução metálica para construção rápida",
-      image: "/2t_estruturas_3.jpg",
+      image: "/estrutura_metalica.jpg",
       category: "Varejo"
     },
     {
       title: "Escada Metálica",
       description: "Design moderno com segurança industrial",
-      image: "/2t_estruturas_4.jpg",
+      image: "/interior_pavilhao.jpg",
       category: "Residencial"
     },
     {
       title: "Mezanino",
       description: "Estrutura para aumento de área útil",
-      image: "/2t_estruturas_5.jpg",
+      image: "/escada_metalica.jpg",
       category: "Industrial"
     },
     {
-      title: "Fachada Metálica",
+      title: "Portão Metálico de Contra Peso",
       description: "Solução moderna para prédio comercial",
-      image: "/2t_estruturas_6.jpg",
+      image: "/portao_metalico.jpg",
       category: "Comercial"
+    },
+    {
+      title: "Estrutura para área gourmet",
+      description: "Solução elegante e funcional para áreas externas",
+      image: "/estrutura_area_gourmet.jpg",
+      category: "Residencial"
     }
   ]
 };
